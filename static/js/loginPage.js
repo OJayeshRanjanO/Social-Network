@@ -9,8 +9,28 @@ function login(){
       contentType : "application/json"
     }).done(function (data, textStatus, jqXHR) {
         data = $.parseJSON(JSON.stringify(data));
-        alert(data.login);
+        if (data.login === "failure"){
+                alert(data.login);
+            $("#loginContainer").append("<div style='color:red'> Incorrect username or password </div>")
+        }
     });
+}
+
+function signUp(){
+    var formData = $('#signUpForm').serialize();
+    formData = toJSON(formData);
+    $.ajax({
+      type: "POST",
+      url: "/signUp",
+      data: formData,
+      dataType: "json",
+      contentType : "application/json"
+    }).done(function (data, textStatus, jqXHR) {
+        data = $.parseJSON(JSON.stringify(data));
+        alert(data.signup);
+    });
+
+
 }
 
 function toJSON(data){
