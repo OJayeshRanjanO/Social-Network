@@ -1,0 +1,128 @@
+<html>
+    <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+         <link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename='home.css') }}" />
+        <script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
+                <script type="text/javascript" src="{{ url_for('static', filename='js/circle.js') }}"></script>
+
+
+
+    </head>
+    <body onload="loadPage()">
+        <div class=col-left>
+            <div class=col-left-profile>
+                <div class="col-sm-6 col-left-profile-inside" style="background-color:black;">
+                    <img>
+                </div>
+                <div class="col-sm-6 col-left-profile-inside" style="background-color:white;">
+                    <ul class="nav nav-pills nav-stacked">
+                      <li role="presentation"><a href="#">Profile</a></li>
+                      <li role="presentation"><a href="#">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-left-circles">            
+                <div class="panel panel-danger">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading">Circles<a class='circle-icons' data-toggle="modal" data-target="#createCircleModal"><span class="glyphicon glyphicon-plus-sign"></span></a></div>
+                  <div class="panel-body panel-body-ext">
+                        <ul id=circle-list class="list-group">
+                            <li class="list-group-item circle-item"><div class=circle-item-text>Life Invader Team</div></li>
+                        </ul>
+                  </div>
+                </div>           
+            </div>          
+        </div>
+        <div class=col-mid>
+            <div class="container mid-containers">
+              <div class="jumbotron">
+                <h1>Life Invader Team</h1> 
+                <p>Welcome to Life Invader</p> 
+              </div>
+            </div>
+            
+            <div>
+                <div class="container mid-containers">
+                  <h2>Welcome to Life Invader</h2>
+                  <div class="panel panel-default" >
+                      <div class="panel-body">We are here to stalk people ...</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                          <label for="usr">Comment:</label>
+                          <input type="text" class="form-control" id="usr">
+                        </div>
+                        <button type="submit" class="btn btn-danger">Invade</button>
+                      </div>    
+                  </div>
+                </div>
+                <br>
+                <br>
+            </div>
+            
+        
+        </div>
+        
+        <div class=col-right>
+            <div class="col-messages">            
+                <div class="panel panel-danger panel-col-right-danger">
+                    <div class="panel-body panel-right-body-ext">
+                        <ul class="list-group">
+                            <li class="list-group-item messages-item"><div class=messages-item-text>Life Invader Team</div><a class='message-icons'><span class="glyphicon glyphicon-envelope"></span></a></li>
+                        </ul>
+                        <ul class="list-group">
+                            <li class="list-group-item messages-item"><div class=messages-item-text>Jayesh Ranjan</div><a class='message-icons'><span class="glyphicon glyphicon-envelope"></span></a></li>
+                        </ul>
+                        <ul class="list-group">
+                            <li class="list-group-item messages-item"><div class=messages-item-text>Fanny Dai</div><a class='message-icons'><span class="glyphicon glyphicon-envelope"></span></a></li>
+                        </ul>
+                        <ul class="list-group">
+                            <li class="list-group-item messages-item"><div class=messages-item-text>Lucy Yang</div><a class='message-icons'><span class="glyphicon glyphicon-envelope"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="panel-heading">Messages<a style="color:white;float:right" onclick=addGroup()><span class="glyphicon glyphicon-plus-sign"></span></a>
+                    </div>      
+                </div>
+                
+            </div>  
+        
+        </div>
+
+
+
+        <!--POP UP MODALS-->
+        <!--CREATE CIRCLE MODAL-->
+        <div class="modal fade" id="createCircleModal" tabindex="-1" role="dialog" aria-labelledby="CreateCircleModal" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Circle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <center>
+                      <form id="createCircleForm">
+                        Name: <input type="text" name="circle_name"><br><br>
+                        Type: <input type="text" name="circle_type"><br><br>
+                      </form>
+                  </center>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="createCircle();" data-dismiss="modal">Create</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>

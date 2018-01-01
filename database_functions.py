@@ -1,21 +1,5 @@
 from database_connect import dbConnect
 
-def __createTables():
-    try:
-        connection = dbConnect()
-        query = """CREATE TABLE userdata (
-            userid int primary key auto_increment, 
-            role varchar(32) not null, 
-            username varchar(32) not null, 
-            password varchar(32) not null, 
-            last_name varchar(32) not null, 
-            first_name varchar(32) not null
-        )"""
-        cursor = connection.cursor()
-        cursor.execute(query)
-        connection.commit()
-    finally:
-        connection.close()
 
 def addUser(username, password,role,last_name,first_name):
     try:
@@ -52,7 +36,51 @@ def checkUserPresent(username,password):
         connection.close()
         return False
 
-if __name__ == '__main__':
-    __createTables()
+def addCircle(circle_name,circle_type, userid):
+    try:
+        connection = dbConnect()
+        query = "INSERT into circle_data (circle_name, circle_type, userid) values (\""+str(circle_name)+"\", \""+str(circle_type)+"\", "+str(userid)+")"
+        cursor = connection.cursor()
+        cursor.execute(query)
+        connection.commit()
+        connection.close()
+        circles = getCircles(userid)
+        return (circles)[len(circles)-1]
+    except:
+        print("Something went wrong in addCircle")
+
+def removeCircle(circleid):
+    try:
+        connection = dbConnect()
+        query = "DELETE FROM circle_data WHERE circleid = " + str(circleid)
+        cursor = connection.cursor()
+        cursor.execute(query)
+        connection.commit()
+        connection.close()
+    except:
+        print("Something went wrong in deleteCircle")
 
 
+#RELOAD PAGE FUNCTIONS
+def getUserID(username):
+    try:
+        connection = dbConnect()
+        query = "SELECT userid FROM userdata where username = %s"
+        cursor = connection.cursor()
+        cursor.execute(query,(username,))
+        data = cursor.fetchall()
+        connection.close()
+        return data[0]
+    except:
+        print("Something went wrong in getUserID")
+
+def getCircles(userid):
+    try:
+        connection = dbConnect()
+        query = "SELECT * FROM circle_data where userid = "+str(userid)
+        cursor = connection.cursor()
+        cursor.execute(query)
+        data = cursor.fetchall()
+        return data
+    except:
+        print("Something went wrong in getCircles")

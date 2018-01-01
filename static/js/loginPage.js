@@ -10,8 +10,11 @@ function login(){
     }).done(function (data, textStatus, jqXHR) {
         data = $.parseJSON(JSON.stringify(data));
         if (data.login === "failure"){
-                alert(data.login);
+//                alert(data.login);
             $("#loginContainer").append("<div style='color:red'> Incorrect username or password </div>")
+        }else if (data.login === "success"){
+            localStorage.setItem("username", data.username);
+            window.location.href = "/home"
         }
     });
 }
@@ -41,5 +44,6 @@ function toJSON(data){
         var x = data[i].split("=");
         obj[x[0]] = x[1];
     }
+  obj['username'] = localStorage['username']
   return JSON.stringify(obj);
 }

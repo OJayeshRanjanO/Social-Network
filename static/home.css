@@ -1,0 +1,125 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+body{
+    
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+/*    border: 2px solid red;*/
+        overflow-y: hidden;
+}
+
+.col-left{
+    position: relative;
+    float: left;
+    width: 20vw;
+    height: 100vh;
+/*    border: 2px solid black;*/
+    background-color: #3a3a3a;
+}
+
+.col-left-profile{
+    position: relative;
+    width: 18vw;
+    height: 20vh;
+    margin: 1vw;
+}
+
+.col-left-profile-inside{
+    height: 20vh;
+}
+
+.col-left-circles{
+    position: relative;
+    width: 18vw;
+    height: calc(75.6vh);
+    margin: 1vw;
+    overflow: hidden;
+}
+
+
+
+.col-mid{
+    position: relative;
+    float:left;
+    width: 60vw;
+    height: 100vh;
+/*    border: 2px solid black;*/
+    overflow-y: scroll;
+}
+.mid-containers{width: 100%;}
+
+.col-right{
+    position: relative;
+    float:left;
+    width: 20vw;
+    height: 900vh;
+/*    border: 2px solid black;*/
+    background-color: #3a3a3a;
+    overflow-y: scroll;
+    
+}
+
+.col-messages{
+    position: relative;
+    width: 100%;
+    height: calc(100vh);
+/*    margin: 1vw;*/
+    overflow: hidden;
+    
+}
+
+.panel-col-right-danger{height: 100%;
+    background-color: #3a3a3a;
+    border: none!important;
+}
+
+.panel-right-body-ext{
+    height: 96%;overflow-y: scroll;
+}
+
+.messages-item-text{
+    width: 80%!important;float:left;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.messages-item{background-color:white!important;color:#990000!important;height: 40px!important;}
+.messages-item:hover{
+    background-color: #f2f2f2!important;
+    cursor: pointer;
+}
+.message-icons{color:#990000;float:right;}
+
+
+
+
+.panel{margin: 0px;}
+.panel-body-ext{height: 68vh;overflow-y: scroll;}
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #990000;
+    color: white;
+}
+.panel-danger{border:1px solid #990000}
+.list-group-item{background-color: #990000;color:white;}
+.circle-item{height: 40px!important;}
+.circle-item:hover{
+    color:white!important;
+    background-color: #600000!important;
+    cursor: pointer;
+}
+.circle-item-text{
+    width: 80%!important;float:left;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.circle-icons{color:white;float:right;}
+.nav-stacked{margin-top: 20px;}
+.active a{background-color: #990000 !important;}
+a{color:#990000;}
+a:hover{color:red;}
